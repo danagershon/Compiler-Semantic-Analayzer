@@ -1,0 +1,105 @@
+
+int func() {
+    return 1;
+}
+
+int ags() {
+    return 1;
+}
+
+int zxvc() {
+    return 1;
+}
+
+int sdg(int x) {
+    return 1;
+}
+
+int qwr(bool x1, bool x2) {
+    return 1;
+}
+void main(){
+    printi(sdg(55555123));
+    printi(qwr(true, false));
+    printi(zxvc());
+}
+
+
+bool sdfa4(bool x1, bool x2) {
+    return x1 or x2;
+}
+
+void nbfdrct(bool x1, bool x2) {
+    int x = 1;
+    byte y = 2 b;
+
+    return;
+}
+
+int cwrvsgdhs(bool x1, bool x2, byte x0) {
+    return 1;
+    int x3;
+    int x4;
+    int x5;
+}
+
+int ytyjbd(bool x1, bool x2) {
+    return 1;
+}
+
+int afsdtv(bool x1, bool x2) {
+    return 1;
+}
+
+
+void danceForme(bool Right, bool Left) {
+    if (Right)
+    {
+        print(">>>>>>\n");
+    }
+    if (Left)
+    {
+        print("<<<<<<<\n");
+    }
+    else
+    {
+        if (Right)
+        {
+            print("Well yea, we've got them lefts, but I don't support no AI rights\n >_>\n");
+        }
+        else
+        {
+            print("NEST");
+        }
+    }
+
+    int x1 = afsdtv(true, true);
+    int x2;
+    int x3 = cwrvsgdhs(false, false, 10b);
+    int x4;
+    byte t = 15 b;
+    bool adf = x1 > x2;
+    bool adf2 = x1 >= x2;
+    bool zv = adf and adf2;
+    bool zvNOT = adf or (not adf2);
+
+    if (zvNOT)
+    {
+        if (zv)
+        {
+            if (zvNOT)
+            {
+                bool NEWSYMBOL = true;
+            }
+            bool NEWSYMBOL = true;
+        }
+        else
+            print("Weird flex but ok ^^\n");
+        int i = 12;
+    }
+    else
+        print("BYE!");
+    printi(2);
+    ytyjbd(sdfa4(adf, adf), sdfa4(adf, sdfa4(true, sdfa4(false, false))));
+    print("wtf just happened here???");
+}

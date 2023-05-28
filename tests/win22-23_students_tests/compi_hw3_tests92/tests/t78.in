@@ -1,0 +1,6 @@
+void main(){
+    // previously the main body was empty
+    // but that is a syntax error (contrary to .out) because
+    // Statements must have at least one statement
+    return;
+}

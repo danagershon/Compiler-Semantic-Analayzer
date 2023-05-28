@@ -1,0 +1,10 @@
+void main()
+{
+    int x = 100;
+    while (true)
+    {
+        x = x - 1;
+        break;
+        x = x + 1;
+    }
+}

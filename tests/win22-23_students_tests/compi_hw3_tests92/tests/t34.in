@@ -1,0 +1,19 @@
+int mainFunc(int main, bool killSwitch)
+{
+    if (killSwitch)
+    {
+        return main;
+    }
+    else
+    {
+        return 0;
+    }
+
+    main = main;
+    return main;
+}
+
+void main()
+{
+    return;
+}

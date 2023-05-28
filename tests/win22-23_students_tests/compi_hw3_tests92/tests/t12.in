@@ -1,0 +1,11 @@
+int func1(int param1)
+{
+    return 1;
+}
+
+int func2(int param2)
+{
+    return 2;
+}
+
+// Should fail, no main function

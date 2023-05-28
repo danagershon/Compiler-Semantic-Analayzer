@@ -1,0 +1,14 @@
+void main()
+{
+    return;
+}
+
+int get1()
+{
+    return 1;
+}
+
+void main()
+{
+    return;
+}

@@ -1,0 +1,34 @@
+int Compi(int hw3)
+{
+    return 100; // >=D
+}
+
+void main()
+{
+    int x = 1;
+    
+    if (true)
+    {
+        int t = 1;
+    }
+    else
+    {
+        int t = 1;
+    }
+    int t = 1;
+    
+    if (x) // Should fail here - int is not bool >=(
+    {      // Please make sure you fail in line 20
+        return;
+    }
+}
+
+int Compu(int hw4)
+{
+    return 101; // >=D
+}
+
+bool Infi   (int hw13)
+{
+    return true;
+}

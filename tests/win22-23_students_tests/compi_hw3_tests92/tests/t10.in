@@ -1,0 +1,25 @@
+int Compi(int hw3) // This code is fine
+{
+    return 100; // >=D
+}
+
+void main()
+{
+    bool x = true;
+    
+    if (true)
+    {
+        int t = 1;
+    }
+    else
+    {
+        int t = 1;
+    }
+    int t = 1;
+    
+    if (x)
+    {
+        return;
+    }
+
+}

@@ -1,0 +1,28 @@
+void main()
+{
+    int x = 100;
+    byte y = 100b;
+
+    if (x>y)
+    {
+        return;
+    }
+    bool xSucks = x < y;
+    if (xSucks)
+    {
+        return;
+    }
+    else
+    {
+        return;
+    }
+
+    bool tmp1 = x == y;
+    bool tmp2 = x != y;
+    bool tmp3 = (int)y == (byte)x;
+    bool tmp4 = true;
+    if (true == 5) // previous: false instead of 5. mismatch error (for some unknown god damn reason) [PDF page 4 rule 9]
+    {
+        print("....How..?");
+    }
+}

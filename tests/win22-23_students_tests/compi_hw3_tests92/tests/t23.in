@@ -1,0 +1,50 @@
+bool shouldGoToSchool(int motivation, int schoolImportance)
+{
+    int magicValue = (schoolImportance + motivation * 2);
+    if (magicValue >= 50 and magicValue <= 100)
+    {
+        print("MagicValue is magical!");
+        return true;
+    }
+    else
+    {
+        print("magicValue isn't as magical as I wanted it to be :(");
+        printi(magicValue);
+        return false;
+    }
+
+    return false;
+    return false;
+    return false;
+    return false;
+    return false;
+    return false;
+    return false;
+    return false;
+    return false;
+    return false;
+    return false;
+    return false;
+    return false;
+    return false;
+    return false;
+    return false;
+    return false;
+    return false;
+    return false;
+    return false;
+    return false;
+    return false;
+    return false;
+    return false;
+    return false;
+    return false;
+    return false;
+    return false;
+    return false;
+    print("Stay in school kids\n");
+}
+
+void main() {
+    return;
+}

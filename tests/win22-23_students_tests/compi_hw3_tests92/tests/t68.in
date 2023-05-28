@@ -1,0 +1,14 @@
+int semester5()
+{
+    return 1;
+}
+
+void main()
+{
+    int func() // Should fail here (func decl inside a func)
+    {
+        return 1;
+    }
+
+    print(func());
+}

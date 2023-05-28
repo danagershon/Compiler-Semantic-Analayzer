@@ -1,0 +1,7 @@
+int func(int param1, int arg2) {
+    return 1;
+}
+
+void main(){
+    printi(func); // Should fail here (func ain't a variable)
+}

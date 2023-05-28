@@ -1,0 +1,8 @@
+void main()
+{
+    int x = 8;
+    int y, z;
+    y = 8;
+    z = 8;    
+    return;
+}

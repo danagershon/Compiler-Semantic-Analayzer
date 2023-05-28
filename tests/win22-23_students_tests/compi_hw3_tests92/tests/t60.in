@@ -1,0 +1,6 @@
+void main()
+{
+    print("Hello world!")  // <--- You forgot the SC lmao
+    int variable = 60;     // Note: is the error supposed to be in line 4?
+    printi(60);
+}

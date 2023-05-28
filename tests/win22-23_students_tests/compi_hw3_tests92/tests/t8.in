@@ -1,0 +1,11 @@
+int funky(bool cleanMode)
+{
+    int actuallyInt = 8;
+    bool t = true;
+    return t; // Should fail here (return type mismatch)
+}
+
+void main()
+{
+    return;
+}

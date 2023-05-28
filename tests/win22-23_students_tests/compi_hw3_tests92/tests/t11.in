@@ -1,0 +1,14 @@
+int func(int arg)
+{
+    return 1;
+}
+
+int func(int arg) // Should fail here (Symbol already declared)
+{
+    return 1;
+}
+
+void main()
+{
+    print("Finished!");
+}

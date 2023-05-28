@@ -1,0 +1,45 @@
+// Check derivation rules priority - this is oke :)
+int input()
+{
+    return 1; // TODO: update
+}
+
+int test1 ()
+{
+    bool x = not true;
+}
+
+int test2()
+{
+    int x = input();
+    int y = input();
+    bool z = x > y;
+}
+
+int test3()
+{
+    int test4 = input();
+    int test5 = input();
+
+    bool test6 = test4 <= test5;
+}
+
+int test4()
+{
+    return input();
+}
+
+int test5()
+{
+    return input() + input() - input() - input(); // the compicated way of saying ZERO
+}
+
+int test6()
+{
+    return test5();
+}
+
+void main()
+{
+    return;
+}

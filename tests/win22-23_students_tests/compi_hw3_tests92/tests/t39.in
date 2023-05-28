@@ -1,0 +1,32 @@
+int mainFunc(int main, bool killSwitch)
+{
+    if (killSwitch)
+        return main;
+    else
+    {
+        return 0;
+    }
+
+    // main = main if (killSwitch) else 0;
+    return main;
+}
+
+void main()
+{
+    return;
+}
+
+int mainFunc2(int main, bool killSwitch)
+// Should fail    ^^^^, symbol already defined
+{
+    if (killSwitch)
+    {
+        return main;
+    }
+    else
+    {
+        return 0;
+    }
+
+    return main;
+}

@@ -1,0 +1,64 @@
+// this is oke :)
+int func() {
+    return 1;
+}
+
+int ags() {
+    return 1;
+}
+
+int zxvc() {
+    return 1;
+}
+
+int sdg() {
+    return 1;
+}
+
+int qwr(bool x1, bool x2) {
+    return 1;
+}
+void main(){
+    printi(sdg());
+    printi(qwr(true, false));
+    printi(zxvc());
+}
+
+
+bool sdfa4(bool x1, bool x2) {
+    return x1 or x2;
+}
+
+void nbfdrct(bool x1, bool x2) { 
+    int x = 1;
+    byte y = 2 b;
+
+    return;
+}
+
+int cwrvsgdhs(bool x1, bool x2, byte x0) {
+    return 1;
+    int x3;
+    int x4;
+    int x5;
+    int x6;
+    int x7;
+    int x8;
+    int x9;
+    int xa;
+    int xb;
+    int xc;
+    int xd;
+    int xe;
+    int xf;
+    int x86 = 64;
+}
+
+int ytyjbd(bool x1, bool x2) {
+    return 1;
+}
+
+int afsdtv(bool x1, bool x2) {
+    return 1;
+}
+

@@ -1,0 +1,14 @@
+bool foo(bool x){
+	while(1==2){
+		byte y = 1b;
+		return y==2 or 2<=y;
+		//
+		return ((1==2));
+		bool hi = 1b==2;
+		//if u have type missmatch it's because bison thinks of it like that:
+		bool bb = 1==2;
+		break;
+		continue;
+	}
+	return (5);
+}

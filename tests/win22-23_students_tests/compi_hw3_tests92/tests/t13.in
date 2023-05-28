@@ -1,0 +1,11 @@
+int func1(int param1)
+{
+    return 1;
+}
+
+int main() // this is not the right main!!
+{
+    return 2;
+}
+
+// Should fail, no VOID main function

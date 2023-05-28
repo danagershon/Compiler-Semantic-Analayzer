@@ -1,0 +1,26 @@
+// this is ok :)
+int getInput() {
+    return 1; // TODO - Actually read input from user
+}
+
+void main(){
+    int x = getInput();
+    int y = getInput();
+    int XplusY = x + y;
+    int XdivY = x / y;
+    bool XeqY = x == y;
+    bool XgtY = x > y;
+    bool XltY = x < y;
+    bool xneY = x != y;
+
+    if (x != y) {
+        return;
+    }
+
+    x = getInput();
+    y = getInput();
+
+    XgtY = x >= y;
+    XltY = x <= y;
+
+}

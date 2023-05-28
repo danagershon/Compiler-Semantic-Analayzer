@@ -1,0 +1,10 @@
+void main()
+{
+    return;
+}
+
+string func1() // syntax error
+{
+    print("??? who da fk is string??\n");
+    return "bye";
+}

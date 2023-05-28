@@ -1,0 +1,12 @@
+// this is ok :)
+int funky(bool cleanMode)
+{
+    int actuallyInt = 5;
+    bool t = true;
+    return actuallyInt;
+}
+
+void main()
+{
+    return;
+}

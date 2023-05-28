@@ -1,0 +1,11 @@
+int foo(int x, 
+                        
+                        int foo)
+{
+    return 1;
+}
+
+void main()
+{
+    return;
+}

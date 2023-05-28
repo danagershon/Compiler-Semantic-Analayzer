@@ -1,0 +1,9 @@
+int func(int param1)
+{
+    return param1 * 2 + 2 * 2 + 2;
+}
+
+void main()
+{
+    printi(7);
+}

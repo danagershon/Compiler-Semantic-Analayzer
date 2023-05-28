@@ -1,0 +1,32 @@
+int func1(int param1)
+{
+    return 1;
+}
+int func2(int param1, int param2)
+{
+    return func1(param1) * param2;
+}
+int func3(int param1, int param2, bool param3)
+{
+    int param4 = func1(param1);
+    return 5;
+}
+int func4()
+{
+    return -1; // syntax error - we dont know negative numbers!
+}
+
+void main()
+{
+    int x1 = func1(1);
+    int x2 = func2(1,2);
+    int x3 = func3(x1, x2, true);
+    int x4 = func3(x1, x2, false);
+    while (((false and false) and true) or true)
+    {
+        int y = 1;
+        continue;
+        break;
+    }
+    return;
+}

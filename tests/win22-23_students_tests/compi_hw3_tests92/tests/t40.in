@@ -1,0 +1,7 @@
+int func(int param1, int arg2) {
+    return 1;
+}
+
+void main(){
+    printi(func(1, 2)); // Should be fine
+}

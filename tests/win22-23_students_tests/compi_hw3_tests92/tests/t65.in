@@ -1,0 +1,11 @@
+// should fail - symbol redeclared (fib)
+int fib(int fib)
+{
+    if (fib == 0 or fib == 1) {
+        return 1;
+    }
+    return fib(fib - 1) + fib(fib - 2);
+}
+
+void main() {     return fib(0); }
+// because

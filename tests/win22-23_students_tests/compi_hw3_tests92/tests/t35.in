@@ -1,0 +1,3 @@
+void main(){
+    byte large = 300 b;
+}

@@ -1,0 +1,5 @@
+void main() // Piazza @89
+{
+    // bool tmp = (true if(true) else  1b);
+    byte tmp2 = true;
+}

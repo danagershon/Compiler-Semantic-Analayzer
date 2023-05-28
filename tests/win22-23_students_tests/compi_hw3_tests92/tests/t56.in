@@ -1,0 +1,31 @@
+int getInput() {
+    return 1; // TODO - Actually read input from user
+}
+
+void main(){
+    int x = getInput();
+    int y = getInput();
+    int XplusY = x + y;
+    int XdivY = getInput() / y;
+    bool XeqY = print("hi") == y; // mismatch error
+    bool XgtY = x > y;
+    bool XltY = x < y;
+    bool xneY = x != y;
+
+    if (x != y) {
+        return;
+    }
+
+    x = getInput();
+    y = getInput();
+
+    XgtY = x >= y;
+    XltY = x <= y;
+    XgtY = x > y;
+    XltY = x < y;
+
+    XneY = not XeqY;
+    XeqY = (not XgtY) and (not XltY);
+
+
+}

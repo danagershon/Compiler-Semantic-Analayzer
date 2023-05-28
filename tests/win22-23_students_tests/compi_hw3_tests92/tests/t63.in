@@ -1,0 +1,19 @@
+int myFunc(int x)
+{
+    return x - 5;
+}
+
+void main(){
+    int x = 7;
+    byte y = 6; // should fail here - no implicit cast from int to byte
+    
+    if (y == 6)
+    {
+        print("6 is awesome");
+        print("6");
+    }
+
+    else
+        printi(6);
+    
+}

@@ -1,0 +1,10 @@
+void main()
+{
+    return;
+}
+
+voir func1() // syntax error
+{
+    print("??? who da fk is voiR??\n");
+    return "bye";
+}

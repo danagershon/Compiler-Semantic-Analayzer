@@ -1,0 +1,11 @@
+int func1(int param1)
+{
+    return 1;
+}
+
+void main(int param2)
+{
+    return;
+}
+
+// Should fail, no PARAMLESS void main function

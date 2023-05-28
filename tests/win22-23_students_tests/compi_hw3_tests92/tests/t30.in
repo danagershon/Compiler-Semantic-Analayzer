@@ -1,0 +1,19 @@
+// this is oke :)
+void printOK() {
+    print("OK!");
+    printi(5);
+}
+
+void main()
+{
+    int x = (((((5)))));
+    byte Bro = 5 b; // really <Partner>?
+
+    x = (((((x + Bro)+x)+x)));
+    int Bro2 = (((((((((x+Bro))))))+1))+3);
+    
+    // we have some explicit casts here!! make sure you allow dis
+    byte Bro3;
+    Bro3 = (byte)x;
+    x = (int)Bro3;
+}

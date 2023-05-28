@@ -1,0 +1,5 @@
+void main() // Piazza @89
+{
+    bool tmp = 1b;
+    byte tmp2 = 1b;
+}

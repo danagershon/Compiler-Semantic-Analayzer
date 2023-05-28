@@ -1,0 +1,17 @@
+void printOk(bool isOk) {
+    if (isOk) print("ok");
+}
+
+void printInt(int x) {
+    printi(x);
+}
+
+void main()
+{
+    //these are ok :)
+    printInt(10);
+    printOk(true);
+    
+    // this is bad
+    print(if);
+}

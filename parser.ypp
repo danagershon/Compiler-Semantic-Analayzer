@@ -1,0 +1,174 @@
+%{
+#include "bison_code.hpp"
+#include <algorithm> // for std::reverse
+#include <iostream>
+
+extern int yylex();
+extern int yylineno;
+int yyerror(const char* message);
+SymTable* symbol_table;
+Type last_exp;
+std::vector<bool> in_while;
+Type last_ret_type;
+
+%}
+
+%union {
+  int int_val;
+  char* string_val;
+  char* id_name;
+  Type type;
+  bool override;
+  ArgInfo* arg_info;
+  std::vector<ArgInfo*>* arg_list;
+  std::vector<Type>* exp_list;
+}
+
+%token VOID INT BYTE B BOOL OVERRIDE
+%token TRUE FALSE RETURN IF WHILE BREAK
+%token CONTINUE SC COMMA
+
+%token<string_val> STRING
+%token<id_name> ID
+%token<int_val> NUM
+
+%left LBRACE RBRACE
+%right ASSIGN
+%left OR
+%left AND
+%left EQUAL NOT_EQUAL
+%left LESS_EQUAL GREATER_EQUAL GREATER LESS
+%left PLUS MINUS
+%left MUL DIV
+%right NOT
+
+/* solve dangling else by giving ELSE higher precedence than RRPAREN */
+%left LPAREN RPAREN
+%nonassoc ELSE
+
+%type<override> OverRide
+%type<type> Type RetType Exp Call
+%type<exp_list> ExpList
+%type<arg_info> FormalDecl
+%type<arg_list> FormalsList Formals
+
+%%
+
+Program   :    Funcs            {checkMain(symbol_table); printAndDelTopScope(symbol_table);}
+          ;
+
+Funcs     :    /* epsilon */    {}
+          |    FuncDecl Funcs   {}
+          ;
+
+FuncDecl  :    OverRide RetType ID LPAREN Formals RPAREN {addFunc(symbol_table,$3,$2,$5,$1);} LBRACE {addFuncScope(symbol_table,$5); last_ret_type = $2} Statements RBRACE {printAndDelTopScope(symbol_table);}
+          ;
+
+OverRide  :    /* epsilon */    {$$ = false;}
+          |    OVERRIDE         {$$ = true;}
+          ;
+
+RetType   :    Type             {$$ = $1;}
+          |    VOID             {$$ = VOID_TYPE;}
+          ;
+
+Formals   :    /* epsilon */    {$$ = nullptr;}
+          |    FormalsList      {$$ = $1; std::reverse($$->begin(), $$->end());}
+          ;
+
+FormalsList   :    FormalDecl                      {$$ = new std::vector<ArgInfo*>; $$->push_back($1);}
+              |    FormalDecl COMMA FormalsList    {$$ = $3; $$->push_back($1);}
+              ;
+
+FormalDecl    :    Type ID    {$$ = new ArgInfo(); $$->arg_name.assign($2); $$->arg_type = $1;}
+              ;
+
+Statements    :    Statement               {}
+              |    Statements Statement    {}
+              ;
+
+Statement     :    LBRACE {addScope(symbol_table);} Statements RBRACE {printAndDelTopScope(symbol_table);}
+
+              |    Type ID SC                  {handleVarDec(symbol_table,$2,$1);}
+
+              |    Type ID ASSIGN Exp SC       {handleVarInitialization(symbol_table,$2,$1,$4);}
+
+              |    ID ASSIGN Exp SC            {handleVarReassign(symbol_table,$1,$3);}
+
+              |    Call SC                     {}
+
+              |    RETURN SC                   {checkEmptyRet(last_ret_type);}
+              |    RETURN Exp SC               {checkExpRet(last_ret_type,$2);}
+
+              |    IF LPAREN Exp RPAREN M Statement {printAndDelTopScope(symbol_table);}
+
+              |    IF LPAREN Exp RPAREN M Statement ELSE {printAndDelTopScope(symbol_table); addScope(symbol_table);} Statement {printAndDelTopScope(symbol_table);}
+
+              |    WHILE LPAREN Exp RPAREN M {in_while.push_back(true);} Statement {printAndDelTopScope(symbol_table); in_while.pop_back();}
+
+              |    BREAK SC                {checkBreakInWhile(in_while);}
+              |    CONTINUE SC             {checkContinueInWhile(in_while);}
+              ;
+
+M       :    /* epsilon */    {checkIfBool(last_exp); addScope(symbol_table);};
+
+Call    :    ID LPAREN ExpList RPAREN    {std::reverse($3->begin(), $3->end()); $$ = checkIfLegalCall(symbol_table,$1,$3);}
+        |    ID LPAREN RPAREN            {$$ = checkIfLegalCall(symbol_table,$1,{});}
+        ;
+
+ExpList    :    Exp                  {$$ = new std::vector<Type>; $$->push_back($1);}
+           |    Exp COMMA ExpList    {$$ = $3; $$->push_back($1);}
+           ;
+
+Type    :    INT     {$$ = INT_TYPE;}
+        |    BYTE    {$$ = BYTE_TYPE;}
+        |    BOOL    {$$ = BOOL_TYPE;}
+        ;
+
+Exp    :    LPAREN Exp RPAREN        {$$ = last_exp = $2;}
+       |    Exp DIV Exp              {$$ = last_exp = checkBinopExp($1,$3);}
+       |    Exp MUL Exp              {$$ = last_exp = checkBinopExp($1,$3);}
+       |    Exp MINUS Exp            {$$ = last_exp = checkBinopExp($1,$3);}
+       |    Exp PLUS Exp             {$$ = last_exp = checkBinopExp($1,$3);}
+
+       |    ID                       {$$ = last_exp = checkVarDeclaredBeforeUsed(symbol_table,$1);}
+
+       |    Call                     {$$ = last_exp = $1;}
+
+       |    NUM                      {$$ = last_exp = INT_TYPE;}
+       |    NUM B                    {$$ = last_exp = checkByteVal($1);}
+       |    STRING                   {$$ = last_exp = STRING_TYPE;}
+       |    TRUE                     {$$ = last_exp = BOOL_TYPE;}
+       |    FALSE                    {$$ = last_exp = BOOL_TYPE;}
+
+       |    NOT Exp                  {$$ = last_exp = checkIfBool($2);}
+
+       |    Exp AND Exp              {$$ = last_exp = checkLogicExp($1,$3);}
+       |    Exp OR Exp               {$$ = last_exp = checkLogicExp($1,$3);}
+
+       |    Exp EQUAL Exp            {$$ = last_exp = checkRelopExp($1,$3);}
+       |    Exp NOT_EQUAL Exp        {$$ = last_exp = checkRelopExp($1,$3);}
+       |    Exp LESS_EQUAL Exp       {$$ = last_exp = checkRelopExp($1,$3);}
+       |    Exp GREATER_EQUAL Exp    {$$ = last_exp = checkRelopExp($1,$3);}
+       |    Exp GREATER Exp          {$$ = last_exp = checkRelopExp($1,$3);}
+       |    Exp LESS Exp             {$$ = last_exp = checkRelopExp($1,$3);}
+
+       |    LPAREN Type RPAREN Exp   {$$ = last_exp = checkConversion($2,$4)}
+       ;
+
+%%
+
+int main() {
+    symbol_table = new SymTable();
+    std::vector<std::string> predefined_func = {"print", "printi"};
+    initSymTable(symbol_table, predefined_func);
+	yyparse();
+	delete symbol_table;
+
+}
+
+int yyerror(const char* message) {
+	output::errorSyn(yylineno);
+	exit(0);
+}
+

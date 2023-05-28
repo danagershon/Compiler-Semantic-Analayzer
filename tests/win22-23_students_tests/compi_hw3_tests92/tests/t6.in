@@ -1,0 +1,14 @@
+int fakeFunc(int one, int two)
+{
+    return one + two;
+}
+
+void main()
+{
+    int x;
+    int y;
+    x = 8;
+    y = 6;
+    int z = x + y;
+    int print = 5; // Should error here (pdf page 3 - NO SHADOWING OF ANY IDENTIFIER)
+}

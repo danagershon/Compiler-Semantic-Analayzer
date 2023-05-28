@@ -1,0 +1,6 @@
+void main() // Piazza @89
+{
+    bool hi1 = 1b==2;
+    bool hi2 = (1b==2);
+    bool hi3 = 1b; // Should fail here
+}

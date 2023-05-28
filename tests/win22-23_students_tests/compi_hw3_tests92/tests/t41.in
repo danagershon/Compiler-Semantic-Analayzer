@@ -1,0 +1,8 @@
+int func(int param1, int arg2) {
+    return 1;
+}
+
+void main(){
+    int one = func(0, 1);
+    int two = one(); // What even is this?
+}

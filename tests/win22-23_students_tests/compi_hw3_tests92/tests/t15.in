@@ -1,0 +1,9 @@
+int fake_func(int one, int two) // should fail here (lexical error)
+{
+    return one + two;
+}
+
+void main()
+{
+    return;
+}

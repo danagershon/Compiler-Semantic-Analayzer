@@ -1,0 +1,19 @@
+int Compi(int hw3)
+{
+    return 100; // >=D
+}
+
+void main()
+{
+    int x = 1;
+    
+    if (true)
+    {
+        int t = 1;
+    }
+    else
+    {
+        return true; // should fail here - type mismatch for ret value
+    }
+    
+}

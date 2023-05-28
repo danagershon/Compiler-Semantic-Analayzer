@@ -1,0 +1,18 @@
+// ordering
+void main()
+{
+    byte x1 = 1b;
+    byte x2 = 1b;
+    byte x3 = 1b;
+    byte x4 = 1b;
+    int  x5 = 1;
+    int x;
+    x = x1 + 1;
+    x = x1 + 1 + x2;
+    x = x1 + 1 + x2 / 2;
+    x = x1 + 1 + x2 / 2 - x3;
+    x = x1 + 1 + x2 / 2 - x3 - x4;
+    x = x1 + 1 + x2 / 2 - x3 - x4 * x5;
+    x = x1 + 1 + x2 / (2 - x3) - x4 * x5;
+    x = x1 + 1 + x2 / ((2 - x3) - x4) * x5;
+}

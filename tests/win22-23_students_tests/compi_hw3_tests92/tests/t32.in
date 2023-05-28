@@ -1,0 +1,19 @@
+void printOK() {
+    print("OK!");
+    printi(5);
+}
+
+void main()
+{
+    int x = (((((5)))));
+    byte Bro = 5 b; // really <Partner>?
+
+    x = (((((x + Bro)+x)+x)));
+    int Bro2 = (((((((((x+Bro))))))+1))+3);
+
+    byte Bro3;
+    Bro3 = (byte)x;
+    x = (int)Bro3;
+    x = (byte)Bro2;
+    x = (bool)Bro2; // should fail here - cant cast int->bool
+}

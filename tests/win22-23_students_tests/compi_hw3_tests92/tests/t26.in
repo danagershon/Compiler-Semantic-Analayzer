@@ -1,0 +1,7 @@
+void main()
+{
+    while(1) // Should fail here (int is not boolean).
+    {        // Please make sure you fail in line 3
+        print("Don't forget that you're here forever");
+    }
+}

@@ -1,4 +1,4 @@
-# Compiler-Semantic-Analyzer
+# Compiler Semantic Analyzer
 
 • Theory of Compilation HW3: building a semantic analyzer by adding syntax rules to the bottom-up syntax analyzer
 

@@ -1,6 +1,6 @@
 # Compiler-Semantic-Analyzer
 
-• Theory of Compilation spring 23 HW3: building a semantic analyzer by adding syntax rules to the bottom-up syntex analyzer
+• Theory of Compilation HW3: building a semantic analyzer by adding syntax rules to the bottom-up syntax analyzer
 
 • Semantic rules are executed when the corresponding production rule is reduced
 
